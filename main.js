@@ -22,7 +22,7 @@ class Block {
   }
 
   mineBlock(difficulty) {
-    //
+    // Set difficulty level
   }
 }
 
@@ -36,7 +36,7 @@ class Blockchain {
   }
 
   createGenesis() {
-    return new Block(0, "01/01/2018", "Genesis block", "0")
+    return new Block(0, "06/21/2018", "Genesis block", "0")
   }
 
   latestBlock() {
@@ -66,3 +66,10 @@ class Blockchain {
     return true
   }
 }
+
+let jsChain = new Blockchain()
+jsChain.addBlock(new Block("06/22/18", { amount: 5 }))
+jsChain.addBlock(new Block("06/22/18", { amount: 10 }))
+
+console.log(JSON.stringify(jsChain, null, 4))
+console.log("Is blockchain valid? " + jsChain.checkValid())
